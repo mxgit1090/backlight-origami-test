@@ -1,4 +1,11 @@
-# starter-origami
+import React from 'react';
+import { mdx } from '@mdx-js/react';
+import { Layout } from '~/layout';
+import { BottomNavigation } from '@divriots/starter-origami/bottom-navigation';
+import { Playground } from '@divriots/dockit-react/playground';
+import { ThemeColorsShowcase } from '~/showcases';
+
+export default Layout;
 
 Origami is a [React-Native](https://reactnative.dev) Design System starter kit, using [Paper](https://reactnativepaper.com) component library: an open source components library based on [Material Design](https://material.io/design).
 
@@ -21,6 +28,8 @@ Origami takes the design tokens defined in [Paper](https://reactnativepaper.com)
 
 And make them automatically documented and visually discoverable.
 
+<ThemeColorsShowcase />
+
 [Paper](https://reactnativepaper.com) has great semantical design tokens. It's simple but very efficient. The Paper team has done a great job here.
 
 ## Dark mode
@@ -30,6 +39,29 @@ Dark and Light themes are included out-of-the-box. You can experience it in the 
 ## Components
 
 Origami comes with 25+ components to get started: menu, dialog, buttons, checkbox, cards, everything to cover the basics, and more.
+
+### Demo
+
+<Playground
+  scope={{ BottomNavigation }}
+  code={`
+() => {
+  const [index, setIndex] = React.useState(0);
+  const [routes] = React.useState([
+    { key: 'music', title: 'Music', icon: 'music' },
+    { key: 'albums', title: 'Albums', icon: 'album' },
+    { key: 'recents', title: 'Recents', icon: 'history' },
+  ]);
+  return (
+      <BottomNavigation
+        navigationState={{ index, routes }}
+        onIndexChange={setIndex}
+        renderScene={() => {}}
+      />
+  );
+};
+`}
+/>
 
 📦 [npm package](https://www.npmjs.org/@divriots/starter-origami) to try Origami unchanged.
 
